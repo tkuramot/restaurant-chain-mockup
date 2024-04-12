@@ -76,7 +76,7 @@ class User
   end
 
   def to_array
-    [self.id, self.first_name, self.last_name, self.email, self.hashed_password,
+    [self.id, self.first_name, self.last_name, self.email,
      self.phone_number, self.address, self.birth_date, self.membership_expiration_date, self.role]
   end
 
@@ -86,7 +86,6 @@ class User
       first_name: self.first_name,
       last_name: self.last_name,
       email: self.email,
-      hashed_password: self.hashed_password,
       phone_number: self.phone_number,
       address: self.address,
       birth_date: self.birth_date,
