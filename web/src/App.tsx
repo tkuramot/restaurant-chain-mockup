@@ -1,5 +1,12 @@
+import Users from "./users/Users";
+
 function App() {
-	return <>{import.meta.env.VITE_API_URL}</>;
+	return (
+    <>
+      <h1>Users</h1>
+      <Users />
+    </>
+  )
 }
 
 export default App;
