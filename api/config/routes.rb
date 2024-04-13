@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   scope '/api' do
     resources :users, only: [:index]
     resources :employees, only: [:index]
+    resources :companies, only: [:index]
   end
 end

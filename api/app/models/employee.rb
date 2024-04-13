@@ -66,7 +66,7 @@ class Employee < User
 
   class << self
     def generate(min = 1, max = 5)
-      (min..max).map { generate_one }
+      (1..(min..max)).map { generate_one }
     end
 
     private
