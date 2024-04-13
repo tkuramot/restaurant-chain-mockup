@@ -1,4 +1,4 @@
-type BasicUser = {
+type User = {
 	id: number;
 	first_name: string;
 	last_name: string;
@@ -10,6 +10,6 @@ type BasicUser = {
 	role: string;
 };
 
-type BasicUsers = BasicUser[];
+type Users = User[];
 
-export type { BasicUser, BasicUsers };
+export type { User, Users };

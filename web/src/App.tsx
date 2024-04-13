@@ -1,10 +1,13 @@
-import Users from "./users/Users";
+import UsersList from "./users/UsersList";
+import EmployeesList from "./employees/Employees";
 
 function App() {
 	return (
     <>
       <h1>Users</h1>
-      <Users />
+      <UsersList />
+      <h1>Employees</h1>
+      <EmployeesList />
     </>
   )
 }

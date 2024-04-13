@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import axios, { type AxiosResponse } from "axios";
-import type { BasicUsers, BasicUser } from "../types/User";
+import type { Users, User } from "../types/User";
 
-function Users() {
-	const [users, setUsers] = useState<BasicUsers>([]);
+function UsersList() {
+	const [users, setUsers] = useState<Users>([]);
 	useEffect(() => {
 		axios
 			.get("/api/users")
-			.then((response: AxiosResponse<BasicUsers>) => {
+			.then((response: AxiosResponse<Users>) => {
 				setUsers(response.data);
 			})
 			.catch((error) => {
@@ -17,7 +17,7 @@ function Users() {
 
 	return (
 		<div>
-			{users.map((user: BasicUser) => (
+			{users.map((user: User) => (
 				<div key={user.id}>
 					<h2>
 						{user.first_name} {user.last_name}
@@ -34,4 +34,4 @@ function Users() {
 	);
 }
 
-export default Users;
+export default UsersList;
