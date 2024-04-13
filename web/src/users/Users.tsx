@@ -1,26 +1,13 @@
 import { useEffect, useState } from "react";
 import axios, { type AxiosResponse } from "axios";
-
-type User = {
-	id: number;
-	first_name: string;
-	last_name: string;
-	email: string;
-	phone_number: string;
-	address: string;
-	birth_date: string;
-	membership_expiration_date: string;
-	role: string;
-};
-
-type Users = User[];
+import type { BasicUsers, BasicUser } from "../types/User";
 
 function Users() {
-	const [users, setUsers] = useState<Users>([]);
+	const [users, setUsers] = useState<BasicUsers>([]);
 	useEffect(() => {
 		axios
 			.get("/api/users")
-			.then((response: AxiosResponse<Users>) => {
+			.then((response: AxiosResponse<BasicUsers>) => {
 				setUsers(response.data);
 			})
 			.catch((error) => {
@@ -30,7 +17,7 @@ function Users() {
 
 	return (
 		<div>
-			{users.map((user: User) => (
+			{users.map((user: BasicUser) => (
 				<div key={user.id}>
 					<h2>
 						{user.first_name} {user.last_name}
