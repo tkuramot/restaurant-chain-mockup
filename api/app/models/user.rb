@@ -53,16 +53,14 @@ class User
   end
 
   def to_html
-    "<div class='user-card'>
-        <div class='avatar'>SAMPLE</div>
-        <h2>#{self.first_name} #{self.last_name}</h2>
-        <p>Email: #{self.email}</p>
-        <p>Phone Number: #{self.phone_number}</p>
-        <p>Address: #{self.address}</p>
-        <p>Birth Date: #{self.birth_date}</p>
-        <p>Membership Expiration Date: #{self.membership_expiration_date}</p>
-        <p>Role: #{self.role}</p>
-      </div>"
+    "<div class='avatar'>SAMPLE</div>
+    <h2>#{self.first_name} #{self.last_name}</h2>
+    <p>Email: #{self.email}</p>
+    <p>Phone Number: #{self.phone_number}</p>
+    <p>Address: #{self.address}</p>
+    <p>Birth Date: #{self.birth_date}</p>
+    <p>Membership Expiration Date: #{self.membership_expiration_date}</p>
+    <p>Role: #{self.role}</p>"
   end
 
   def to_markdown
