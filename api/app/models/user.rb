@@ -94,7 +94,7 @@ class User
 
   class << self
     def generate(min = 1, max = 5)
-      (1..rand(min..max)).map { |_i| generate_one }
+      (1..rand(min..max)).map { generate_one }
     end
 
     private
