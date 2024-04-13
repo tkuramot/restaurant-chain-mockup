@@ -80,7 +80,7 @@ class User
      self.phone_number, self.address, self.birth_date, self.membership_expiration_date, self.role]
   end
 
-  def to_json
+  def to_hash
     {
       id: self.id,
       first_name: self.first_name,
@@ -91,21 +91,29 @@ class User
       birth_date: self.birth_date,
       membership_expiration_date: self.membership_expiration_date,
       role: self.role
-    }.to_json
+    }
   end
 
-  def self.generate
-    User.new(
-      Faker::Number.number(digits: 10),
-      Faker::Name.first_name,
-      Faker::Name.last_name,
-      Faker::Internet.email,
-      BCrypt::Password.create(Faker::Internet.password),
-      Faker::PhoneNumber.cell_phone,
-      Faker::Address.full_address,
-      Faker::Date.birthday(min_age: 18, max_age: 65),
-      Faker::Date.forward(days: 365),
-      %w['admin', 'user', 'editor'].sample
-    )
+  class << self
+    def generate(min = 1, max = 5)
+      (1..rand(min..max)).map { |_i| generate_one }
+    end
+
+    private
+
+    def generate_one
+      User.new(
+        Faker::Number.number(digits: 10),
+        Faker::Name.first_name,
+        Faker::Name.last_name,
+        Faker::Internet.email,
+        BCrypt::Password.create(Faker::Internet.password),
+        Faker::PhoneNumber.cell_phone,
+        Faker::Address.full_address,
+        Faker::Date.birthday(min_age: 18, max_age: 65),
+        Faker::Date.forward(days: 365),
+        %w['admin', 'user', 'editor'].sample
+      )
+    end
   end
 end
