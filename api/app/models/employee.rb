@@ -52,11 +52,11 @@ class Employee < User
   end
 
   def to_array
-    super + [self.job_title, self.salary, self.start_date, self.awards]
+    super.to_array + [self.job_title, self.salary, self.start_date, self.awards]
   end
 
   def to_hash
-    super.merge(
+    super.to_hash.merge(
       job_title: self.job_title,
       salary: self.salary,
       start_date: self.start_date,
