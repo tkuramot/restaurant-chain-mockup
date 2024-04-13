@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
     resources :employees, only: [:index]
     resources :companies, only: [:index]
+    resources :restaurant_locations, only: [:index]
     resources :restaurant_chains, only: [:index]
   end
 end
