@@ -1,10 +1,10 @@
-import RestaurantLocationsList from "./components/RestaurantLocationsList";
+import CompaniesList from "./components/CompaniesList";
 
 function App() {
 	return (
     <>
-      <h1>Restaurant Locations</h1>
-      <RestaurantLocationsList />
+      <h1>Companies</h1>
+      <CompaniesList />
     </>
   )
 }
