@@ -16,28 +16,24 @@ function RestaurantChainsList() {
 		<Accordion type="single" collapsible>
 			{restaurantChains?.map((restaurantChain) => (
 				<AccordionItem value={restaurantChain.chain_id.toString()}>
-					<AccordionTrigger>{restaurantChain.name}</AccordionTrigger>
+					<AccordionTrigger className="text-xl text-blue-500 bg-slate-200 px-4">
+						{restaurantChain.name}
+					</AccordionTrigger>
 					<AccordionContent>
-						<p>Founding year: {restaurantChain.founding_year}</p>
-						<p>Description: {restaurantChain.description}</p>
-						<p>Website: {restaurantChain.website}</p>
-						<p>Phone: {restaurantChain.phone}</p>
-						<p>Industry: {restaurantChain.industry}</p>
-						<p>CEO: {restaurantChain.ceo}</p>
-						<p>
-							Is publicly traded:{" "}
-							{restaurantChain.is_publicly_traded ? "Yes" : "No"}
+						<ul className="text-lg p-3">
+							<li>Description: {restaurantChain.description}</li>
+							<li>Website: {restaurantChain.website}</li>
+							<li>Phone: {restaurantChain.phone}</li>
+							<li>CEO: {restaurantChain.ceo}</li>
+							<li>Country: {restaurantChain.country}</li>
+							<li>Total employees: {restaurantChain.total_employees}</li>
+							<li>Cuisine type: {restaurantChain.cuisine_type}</li>
+						</ul>
+						<p className="text-lg p-3">
+							<RestaurantLocationsList
+								restaurantLocations={restaurantChain.restaurant_locations}
+							/>
 						</p>
-						<p>Country: {restaurantChain.country}</p>
-						<p>Founder: {restaurantChain.founder}</p>
-						<p>Total employees: {restaurantChain.total_employees}</p>
-						<p>Chain ID: {restaurantChain.chain_id}</p>
-						<RestaurantLocationsList
-							restaurantLocations={restaurantChain.restaurant_locations}
-						/>
-						<p>Cuisine type: {restaurantChain.cuisine_type}</p>
-						<p>Number of locations: {restaurantChain.number_of_locations}</p>
-						<p>Parent company: {restaurantChain.parent_company}</p>
 					</AccordionContent>
 				</AccordionItem>
 			))}
