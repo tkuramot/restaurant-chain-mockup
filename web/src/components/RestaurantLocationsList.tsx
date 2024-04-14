@@ -1,11 +1,9 @@
 import type { RestaurantLocations } from "../types/RestaurantLocation";
-import useFetchData from "../hooks/useFetchData";
 import EmployeesList from "./EmployeesList";
 
-function RestaurantLocationsList() {
-	const restaurantLocations = useFetchData<RestaurantLocations>(
-		"/api/restaurant_locations",
-	);
+function RestaurantLocationsList({
+	restaurantLocations,
+}: { restaurantLocations: RestaurantLocations }) {
 	return (
 		<div>
 			{restaurantLocations?.map((restaurantLocation) => (
