@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
-import axios, { type AxiosResponse } from "axios";
+import useFetchData from "../hooks/useFetchData";
 import type { Users, User } from "../types/User";
 
 function UsersList() {
-	const [users, setUsers] = useState<Users>([]);
-	useEffect(() => {
-		axios
-			.get("/api/users")
-			.then((response: AxiosResponse<Users>) => {
-				setUsers(response.data);
-			})
-			.catch((error) => {
-				console.error("Error fetching users: ", error);
-			});
-	}, []);
+	const users = useFetchData<Users>("/api/users");
 
 	return (
 		<div>
-			{users.map((user: User) => (
+			{users?.map((user: User) => (
 				<div key={user.id}>
 					<h2>
 						{user.first_name} {user.last_name}
