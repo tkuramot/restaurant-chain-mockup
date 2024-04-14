@@ -1,5 +1,5 @@
-import useFetchData from "../hooks/useFetchData";
-import type { Companies } from "../types/Company";
+import useFetchData from "@/hooks/useFetchData";
+import type { Companies } from "@/types/Company";
 
 function CompaniesList() {
 	const companies = useFetchData<Companies>("/api/companies");

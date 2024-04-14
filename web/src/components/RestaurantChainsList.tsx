@@ -1,6 +1,6 @@
-import type { RestaurantChains } from '../types/RestaurantChain'
-import useFetchData from '../hooks/useFetchData'
-import RestaurantLocationsList from './RestaurantLocationsList'
+import type { RestaurantChains } from '@/types/RestaurantChain'
+import useFetchData from '@/hooks/useFetchData'
+import RestaurantLocationsList from '@/components/RestaurantLocationsList'
 
 function RestaurantChainsList() {
   const restaurantChains = useFetchData<RestaurantChains>('/api/restaurant_chains')

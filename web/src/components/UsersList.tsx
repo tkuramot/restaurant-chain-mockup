@@ -1,5 +1,5 @@
-import useFetchData from "../hooks/useFetchData";
-import type { Users, User } from "../types/User";
+import useFetchData from "@/hooks/useFetchData";
+import type { Users, User } from "@/types/User";
 
 function UsersList() {
 	const users = useFetchData<Users>("/api/users");

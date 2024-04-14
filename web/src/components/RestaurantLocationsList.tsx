@@ -1,5 +1,5 @@
-import type { RestaurantLocations } from "../types/RestaurantLocation";
-import EmployeesList from "./EmployeesList";
+import type { RestaurantLocations } from "@/types/RestaurantLocation";
+import EmployeesList from "@/components/EmployeesList";
 
 function RestaurantLocationsList({
 	restaurantLocations,

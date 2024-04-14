@@ -1,4 +1,4 @@
-import type { Employees, Employee } from "../types/Employee";
+import type { Employees, Employee } from "@/types/Employee";
 
 function EmployeesList({ employees }: { employees: Employees }) {
 	return (
