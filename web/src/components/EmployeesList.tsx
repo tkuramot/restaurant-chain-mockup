@@ -2,7 +2,6 @@ import type { Employees, Employee } from "@/types/Employee";
 import {
 	Table,
 	TableBody,
-	TableCaption,
 	TableCell,
 	TableHead,
 	TableHeader,
