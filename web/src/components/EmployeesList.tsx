@@ -1,16 +1,34 @@
 import type { Employees, Employee } from "@/types/Employee";
+import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@/components/ui/table";
 
 function EmployeesList({ employees }: { employees: Employees }) {
 	return (
-		<div className="pl-7">
-			<ol>
+		<Table>
+			<TableHeader>
+				<TableRow>
+					<TableHead>Employee Name</TableHead>
+					<TableHead>Job Title</TableHead>
+				</TableRow>
+			</TableHeader>
+			<TableBody>
 				{employees.map((employee: Employee) => (
-					<li style={{ listStyle: "square" }} key={employee.id}>
-						{employee.first_name} {employee.last_name}, {employee.job_title}
-					</li>
+					<TableRow key={employee.id}>
+						<TableCell>
+							{employee.first_name} {employee.last_name}
+						</TableCell>
+						<TableCell>{employee.job_title}</TableCell>
+					</TableRow>
 				))}
-			</ol>
-		</div>
+			</TableBody>
+		</Table>
 	);
 }
 

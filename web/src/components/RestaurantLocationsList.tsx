@@ -1,23 +1,33 @@
 import type { RestaurantLocations } from "@/types/RestaurantLocation";
 import EmployeesList from "@/components/EmployeesList";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
 
 function RestaurantLocationsList({
 	restaurantLocations,
 }: { restaurantLocations: RestaurantLocations }) {
 	return (
-		<ol>
+		<Accordion type="single" collapsible className="px-4">
 			{restaurantLocations?.map((restaurantLocation) => (
-				<div className="pb-3" key={restaurantLocation.name}>
-					<li className="text-bold text-lg underline">
-						{restaurantLocation.name}
-					</li>
-					<li>
-						Employees:
-						<EmployeesList employees={restaurantLocation.employees} />
-					</li>
-				</div>
+				<AccordionItem
+					value={restaurantLocation.name}
+					key={restaurantLocation.name}
+				>
+					<div className="pb-3" key={restaurantLocation.name}>
+						<AccordionTrigger>
+							{restaurantLocation.name}
+						</AccordionTrigger>
+						<AccordionContent className="px-4">
+							<EmployeesList employees={restaurantLocation.employees} />
+						</AccordionContent>
+					</div>
+				</AccordionItem>
 			))}
-		</ol>
+		</Accordion>
 	);
 }
 
