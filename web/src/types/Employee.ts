@@ -1,6 +1,6 @@
-import type { BasicUser } from "./User";
+import type { User } from "./User";
 
-type Employee = BasicUser & {
+type Employee = User & {
   job_title: string;
   salary: number;
   start_date: string;

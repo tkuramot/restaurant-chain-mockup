@@ -5,7 +5,7 @@ function EmployeesList({ employees }: { employees: Employees }) {
 		<div className="pl-7">
 			<ol>
 				{employees.map((employee: Employee) => (
-					<li style={{ listStyle: "square" }}>
+					<li style={{ listStyle: "square" }} key={employee.id}>
 						{employee.first_name} {employee.last_name}, {employee.job_title}
 					</li>
 				))}

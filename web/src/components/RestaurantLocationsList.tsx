@@ -7,7 +7,7 @@ function RestaurantLocationsList({
 	return (
 		<ol>
 			{restaurantLocations?.map((restaurantLocation) => (
-				<div className="pb-3">
+				<div className="pb-3" key={restaurantLocation.name}>
 					<li className="text-bold text-lg underline">
 						{restaurantLocation.name}
 					</li>

@@ -2,42 +2,33 @@ import type { RestaurantChains } from "@/types/RestaurantChain";
 import useFetchData from "@/hooks/useFetchData";
 import RestaurantLocationsList from "@/components/RestaurantLocationsList";
 import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@/components/ui/accordion";
+	Card,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 
 function RestaurantChainsList() {
 	const restaurantChains = useFetchData<RestaurantChains>(
 		"/api/restaurant_chains",
 	);
 	return (
-		<Accordion type="single" collapsible>
+		<div className="grid grid-cols-12 items-center p-10">
 			{restaurantChains?.map((restaurantChain) => (
-				<AccordionItem value={restaurantChain.chain_id.toString()}>
-					<AccordionTrigger className="text-xl text-blue-500 bg-slate-200 px-4">
+				<div key={restaurantChain.name} className="col-span-10 md:col-span-8 py-6">
+					<div className="bold text-center text-4xl">
 						{restaurantChain.name}
-					</AccordionTrigger>
-					<AccordionContent>
-						<ul className="text-lg p-3">
-							<li>Description: {restaurantChain.description}</li>
-							<li>Website: {restaurantChain.website}</li>
-							<li>Phone: {restaurantChain.phone}</li>
-							<li>CEO: {restaurantChain.ceo}</li>
-							<li>Country: {restaurantChain.country}</li>
-							<li>Total employees: {restaurantChain.total_employees}</li>
-							<li>Cuisine type: {restaurantChain.cuisine_type}</li>
-						</ul>
-						<p className="text-lg p-3">
-							<RestaurantLocationsList
-								restaurantLocations={restaurantChain.restaurant_locations}
-							/>
-						</p>
-					</AccordionContent>
-				</AccordionItem>
+					</div>
+					<Card key={restaurantChain.name} className="mt-3">
+						<CardHeader>
+							<CardTitle>Restaurant Chain Information</CardTitle>
+						</CardHeader>
+						<RestaurantLocationsList
+							restaurantLocations={restaurantChain.restaurant_locations}
+						/>
+					</Card>
+				</div>
 			))}
-		</Accordion>
+		</div>
 	);
 }
 
