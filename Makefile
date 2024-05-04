@@ -1,8 +1,8 @@
 up: api web
 
 down:
-	kill $(shell pgrep node)
-	kill $(shell pgrep ruby)
+	pkill node
+	pkill ruby
 
 api:
 	cd api && bundle exec rails server &
